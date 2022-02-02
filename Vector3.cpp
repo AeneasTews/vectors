@@ -44,7 +44,7 @@ Vector3 Vector3::normalize()
     }
     catch (int) {
         std::cout << "Can't normalize vector of length 0" << std::endl;
-        return Vector3(0, 0, 0);
+        return NULL;
     }
     
     return Vector3(x, y, z);
@@ -53,4 +53,39 @@ Vector3 Vector3::normalize()
 std::string Vector3::getVector()
 {
     return "(" + std::to_string(x) + " / " + std::to_string(y) + " / " + std::to_string(z) + ")";
+}
+
+void Vector3::setAxis(int axis, double value)
+{
+    switch (axis) {
+        case 0:
+            x = value;
+            break;
+        case 1:
+            y = value;
+            break;
+        case 2:
+            z = value;
+            break;
+        default:
+            std::cout << "Invalid axis" << std::endl;
+    }
+}
+
+double Vector3::getAxis(int axis)
+{
+    switch (axis) {
+        case 0:
+            return x;
+            break;
+        case 1:
+            return y;
+            break;
+        case 2:
+            return z;
+            break;
+        default:
+            std::cout << "Invalid axis" << std::endl;
+            return NULL;
+    }
 }

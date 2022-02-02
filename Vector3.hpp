@@ -22,6 +22,8 @@ public:
     double calcLength();
     Vector3 normalize();
     std::string getVector();
+    void setAxis(int axis, double value);
+    double getAxis(int axis);
 };
 
 #endif /* Vector3_hpp */

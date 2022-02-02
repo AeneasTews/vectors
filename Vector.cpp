@@ -65,10 +65,7 @@ Vector Vector::normalize()
     }
     catch (int) {
         std::cout << "Can't normalize vector of length 0" << std::endl;
-        for (int i = 0; i < size; i++) {
-            normalizedDirection[i] = 0;
-        }
-        return Vector(normalizedDirection, size);
+        return NULL;
     }
     
     return Vector(normalizedDirection, size);
@@ -85,4 +82,16 @@ std::string Vector::getVector()
     vector += ")";
     
     return vector;
+}
+
+void Vector::setAxis(int axis, double value)
+{
+    if (axis >= size || axis < 0) {
+        directions[axis] = value;
+    }
+}
+
+double Vector::getAxis(int axis)
+{
+    return directions[axis];
 }
