@@ -13,8 +13,8 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    double arr[2] = {0, 1};
-    Vector v(arr, 2);
+    double arr[3] = {0, 1, 4};
+    Vector v(arr, 3);
     cout << v.normalize().getVector() << endl;
     
     double arr10[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -31,6 +31,12 @@ int main(int argc, const char * argv[]) {
     
     Vector v2(Vector2(3, 4));
     cout << v2.normalize().calcLength() << endl;
+    
+    cout << v3->add(Vector3(3, 5, 2)).getVector() << endl;
+    
+    double arr2[2] = {4, 3};
+    Vector v4(arr2, 2);
+    cout << v.add(v4).getVector();
     
     return 0;
 }

@@ -27,6 +27,8 @@ public:
     std::string getVector();
     void setAxis(int axis, double value);
     double getAxis(int axis);
+    Vector multiply(double scalar);
+    Vector add(Vector v);
 };
 
 #endif /* Vector_hpp */

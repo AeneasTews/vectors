@@ -89,3 +89,13 @@ double Vector3::getAxis(int axis)
             return NULL;
     }
 }
+
+Vector3 Vector3::multiply(double scalar)
+{
+    return Vector3(x * scalar, y * scalar, z * scalar);
+}
+
+Vector3 Vector3::add(Vector3 v)
+{
+    return Vector3(v.x + this->x, v.y + this->y, v.z + this->z);
+}

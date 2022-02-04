@@ -71,3 +71,13 @@ double Vector2::getAxis(int axis)
         return NULL;
     }
 }
+
+Vector2 Vector2::multiply(double scalar)
+{
+    return Vector2(x * scalar, y * scalar);
+}
+
+Vector2 Vector2::add(Vector2 v)
+{
+    return Vector2(v.x + this->x, v.y + this->y);
+}

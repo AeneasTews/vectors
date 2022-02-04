@@ -65,7 +65,7 @@ Vector Vector::normalize()
     }
     catch (int) {
         std::cout << "Can't normalize vector of length 0" << std::endl;
-        return NULL;
+        return Vector(NULL, 0);
     }
     
     return Vector(normalizedDirection, size);
@@ -94,4 +94,45 @@ void Vector::setAxis(int axis, double value)
 double Vector::getAxis(int axis)
 {
     return directions[axis];
+}
+
+Vector Vector::multiply(double scalar)
+{
+    double vector[size];
+    
+    for (int i = 0; i < size; i++) {
+        vector[i] = directions[i] * scalar;
+    }
+    
+    return Vector(vector, size);
+}
+
+Vector Vector::add(Vector v)
+{
+    if (v.size > this->size) {
+        double arr[v.size];
+        
+        for (int i = 0; i < this->size; i++) {
+            arr[i] = v.directions[i] + directions[i];
+        }
+        
+        for (int i = this->size; i < v.size; i++) {
+            arr[i] = v.directions[i];
+        }
+        
+        return Vector(arr, sizeof(arr)/sizeof(arr[0]));
+    }else
+    {
+        double arr[this->size];
+        
+        for (int i = 0; i < v.size; i++) {
+            arr[i] = v.directions[i] + directions[i];
+        }
+        
+        for (int i = v.size; i < this->size; i++) {
+            arr[i] = directions[i];
+        }
+        
+        return Vector(arr, sizeof(arr)/sizeof(arr[0]));
+    }
 }
